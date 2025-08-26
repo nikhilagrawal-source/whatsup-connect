@@ -18,20 +18,58 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
+				'border-soft': 'hsl(var(--border-soft))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
+				
+				surface: 'hsl(var(--surface))',
+				'surface-soft': 'hsl(var(--surface-soft))',
+				'surface-muted': 'hsl(var(--surface-muted))',
+				
+				text: 'hsl(var(--text))',
+				'text-soft': 'hsl(var(--text-soft))',
+				'text-muted': 'hsl(var(--text-muted))',
+				
+				whatsapp: {
+					green: 'hsl(var(--whatsapp-green))',
+					dark: 'hsl(var(--whatsapp-dark))',
+					light: 'hsl(var(--whatsapp-light))',
+				},
+				
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
-					foreground: 'hsl(var(--primary-foreground))'
+					foreground: 'hsl(var(--primary-foreground))',
+					dark: 'hsl(var(--primary-dark))',
 				},
 				secondary: {
 					DEFAULT: 'hsl(var(--secondary))',
 					foreground: 'hsl(var(--secondary-foreground))'
 				},
+				
+				utility: {
+					DEFAULT: 'hsl(var(--utility))',
+					soft: 'hsl(var(--utility-soft))',
+				},
+				auth: {
+					DEFAULT: 'hsl(var(--auth))',
+					soft: 'hsl(var(--auth-soft))',
+				},
+				marketing: {
+					DEFAULT: 'hsl(var(--marketing))',
+					soft: 'hsl(var(--marketing-soft))',
+				},
+				service: {
+					DEFAULT: 'hsl(var(--service))',
+					soft: 'hsl(var(--service-soft))',
+				},
+				
 				destructive: {
 					DEFAULT: 'hsl(var(--destructive))',
 					foreground: 'hsl(var(--destructive-foreground))'
@@ -52,16 +90,6 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				sidebar: {
-					DEFAULT: 'hsl(var(--sidebar-background))',
-					foreground: 'hsl(var(--sidebar-foreground))',
-					primary: 'hsl(var(--sidebar-primary))',
-					'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
-					accent: 'hsl(var(--sidebar-accent))',
-					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
-					border: 'hsl(var(--sidebar-border))',
-					ring: 'hsl(var(--sidebar-ring))'
-				}
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

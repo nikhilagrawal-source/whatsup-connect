@@ -2,41 +2,74 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* GOMEWA WhatsApp Business Platform Design System */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 @layer base {
   :root {
+    /* WhatsApp Brand Colors */
+    --whatsapp-green: 142 70% 49%;
+    --whatsapp-dark: 170 85% 25%;
+    --whatsapp-light: 142 70% 96%;
+    
+    /* Base Colors */
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
+    --foreground: 0 0% 18%;
+    
+    /* Surface Colors */
+    --surface: 0 0% 98%;
+    --surface-soft: 210 20% 98%;
+    --surface-muted: 210 17% 94%;
+    
+    /* Primary (WhatsApp Green) */
+    --primary: var(--whatsapp-green);
+    --primary-foreground: 0 0% 100%;
+    --primary-dark: var(--whatsapp-dark);
+    
+    /* Secondary */
+    --secondary: 210 17% 94%;
+    --secondary-foreground: 0 0% 18%;
+    
+    /* Accent Colors for Categories */
+    --utility: 259 80% 68%;
+    --utility-soft: 259 80% 95%;
+    --auth: 330 85% 68%;
+    --auth-soft: 330 85% 95%;
+    --marketing: var(--whatsapp-green);
+    --marketing-soft: var(--whatsapp-light);
+    --service: 199 89% 68%;
+    --service-soft: 199 89% 95%;
+    
+    /* Text Colors */
+    --text: 0 0% 18%;
+    --text-soft: 0 0% 45%;
+    --text-muted: 0 0% 62%;
+    
+    /* Border & Inputs */
+    --border: 210 20% 90%;
+    --border-soft: 210 20% 95%;
+    --input: var(--border);
+    --ring: var(--primary);
+    
+    /* Gradients */
+    --gradient-utility: linear-gradient(135deg, hsl(var(--utility)), hsl(270 50% 55%));
+    --gradient-auth: linear-gradient(135deg, hsl(var(--auth)), hsl(340 65% 65%));
+    --gradient-marketing: linear-gradient(135deg, hsl(var(--marketing)), hsl(var(--primary-dark)));
+    --gradient-service: linear-gradient(135deg, hsl(var(--service)), hsl(210 85% 60%));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--whatsapp-light)), hsl(var(--surface)));
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --shadow-whatsapp: 0 8px 25px -8px hsl(var(--whatsapp-green) / 0.3);
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-fast: all 0.15s ease-out;
+    
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -100,6 +133,98 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+}
+
+@layer utilities {
+  /* Floating Animation */
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(2deg); }
+  }
+  
+  /* Fade In Up Animation */
+  .animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out;
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Smooth Scroll */
+  .scroll-smooth {
+    scroll-behavior: smooth;
+  }
+  
+  /* WhatsApp Gradient Backgrounds */
+  .bg-gradient-utility {
+    background: var(--gradient-utility);
+  }
+  
+  .bg-gradient-auth {
+    background: var(--gradient-auth);
+  }
+  
+  .bg-gradient-marketing {
+    background: var(--gradient-marketing);
+  }
+  
+  .bg-gradient-service {
+    background: var(--gradient-service);
+  }
+  
+  .bg-gradient-hero {
+    background: var(--gradient-hero);
+  }
+  
+  /* Hover Lift Effect */
+  .hover-lift {
+    transition: var(--transition-smooth);
+  }
+  
+  .hover-lift:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+  }
+  
+  /* WhatsApp Shadow */
+  .shadow-whatsapp {
+    box-shadow: var(--shadow-whatsapp);
+  }
+}
+
+@layer components {
+  /* Hero Button Variant */
+  .btn-hero {
+    @apply bg-primary text-primary-foreground hover:bg-primary/90 font-semibold px-8 py-4 rounded-xl shadow-whatsapp hover-lift transition-all duration-300;
+  }
+  
+  /* Secondary Button Variant */
+  .btn-secondary {
+    @apply bg-secondary text-secondary-foreground hover:bg-secondary/80 font-medium px-6 py-3 rounded-lg hover-lift;
+  }
+  
+  /* Category Card */
+  .category-card {
+    @apply bg-background border border-border-soft rounded-2xl p-6 hover-lift transition-all duration-300 hover:shadow-lg;
+  }
+  
+  /* Feature Card */
+  .feature-card {
+    @apply bg-surface border border-border-soft rounded-xl p-6 hover-lift;
   }
 }
